@@ -1,4 +1,4 @@
-param(
+﻿param(
     [Parameter(Mandatory=$true)][string]$BundlePath,
     [Parameter(Mandatory=$true)][string]$Destination,
     [string]$Branch = "main"
@@ -39,3 +39,4 @@ Write-Host ""
 Write-Host "Now copy ONLY local runtime/data artifacts from the old internal folder"
 Write-Host "(datasets, checkpoints, pretrained/models, reports, snapshots, etc.)."
 Write-Host "Those paths are ignored by Git and will not affect source synchronization."
+

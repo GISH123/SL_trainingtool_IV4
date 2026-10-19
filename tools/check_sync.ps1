@@ -1,6 +1,6 @@
-param([string]$RemoteRef = "origin/main")
+﻿param([string]$RemoteRef = "origin/main")
 $ErrorActionPreference = "Stop"
-$repoRoot = (git rev-parse --show-toplevel).Trim()
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 Set-Location $repoRoot
 
 git status --short --branch
@@ -20,3 +20,4 @@ if (git rev-parse --verify $RemoteRef 2>$null) {
         Write-Host "SYNC: not identical." -ForegroundColor Yellow
     }
 }
+

@@ -1,9 +1,9 @@
-param(
+﻿param(
     [string]$Branch = "main",
     [string]$OutDir = ".\bundles"
 )
 $ErrorActionPreference = "Stop"
-$repoRoot = (git rev-parse --show-toplevel).Trim()
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 Set-Location $repoRoot
 
 if (git status --porcelain) {
@@ -23,3 +23,4 @@ git bundle verify $outFile
 
 Write-Host "Bundle created: $outFile" -ForegroundColor Green
 Write-Host "Commit: $(git rev-parse $Branch)"
+

@@ -1,10 +1,10 @@
-param(
+﻿param(
     [Parameter(Mandatory=$true)][string]$BundlePath,
     [string]$Branch = "main",
     [switch]$Apply
 )
 $ErrorActionPreference = "Stop"
-$repoRoot = (git rev-parse --show-toplevel).Trim()
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 Set-Location $repoRoot
 
 if (!(Test-Path $BundlePath)) { throw "Bundle not found: $BundlePath" }
@@ -42,3 +42,4 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "`nInternal repo updated successfully." -ForegroundColor Green
 git status --short --branch
 git log -1 --oneline
+
