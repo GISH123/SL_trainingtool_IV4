@@ -1,0 +1,6 @@
+# Generic TensorFlow 2 environment. Install the TensorFlow build appropriate for
+# the target GPU/CUDA machine before this file if the machine is managed offline.
+numpy<2
+opencv-python>=4.7,<5
+openpyxl>=3.1,<4
+pynput>=1.7,<2

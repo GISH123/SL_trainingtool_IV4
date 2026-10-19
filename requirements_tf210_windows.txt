@@ -1,0 +1,6 @@
+# Matches the historical project target: Python 3.10.12 + TensorFlow 2.
+tensorflow==2.10.1
+numpy==1.23.5
+opencv-python==4.8.1.78
+openpyxl==3.1.5
+pynput==1.7.7
